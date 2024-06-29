@@ -1,0 +1,36 @@
+        .mybtn {
+            background-color: #0D6EFD;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        body {
+            /* background-color: orange; */
+        }
+
+        .main .child2 {
+            color: red;
+        }
+
+        .color-violet {
+            color: blueviolet;
+        }
+
+        .div1 {
+            background-color: rgb(160, 23, 23);
+            width: 100px;
+            height: 200px;
+            transition: transform .5s;
+        }
+
+        .div1:hover {
+            background-color: #0D6EFD;
+            transform: translateY(-30px);
+            transform: rotate(90deg);
+        }
+
+        .square:focus {
+            background-color: #00ff00;
+
+        }
