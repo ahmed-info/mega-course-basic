@@ -11,71 +11,41 @@
     <meta name="keywords" content="برمجة, برامجو">
 </head>
 <body>
-<table border="">
-    <thead bordered="">
-        <th>id</th>
-        <th>name</th>
-        <th>age</th>
-        <td>mobile</td>
-    </thead>
-    <tbody>
-        
-        <td>1</td>
-            <td>احمد</td>
-            <td>18</td>
-            <td>07812345678</td>
+    <!-- <input type="number" id="num1" placeholder="ادخل الرقفم الاول">4
+    <input type="number" id="num2" placeholder="ادخل الرقم الثاني"> -->
+    <input type="text" id="name1" placeholder="ادخل الاسم الاول">
+    <input type="text" id="name2" placeholder="ادخل الاسم الثاني">
+    <h1 id="result" style="color: #ffffff;">dgdgrf</h1>
 
-         <tr>
-         
-            <td>2</td>
-            <td>احمد</td>
-            <td>18</td>
-            <td>0777777777</td>
-        </tr>
-    </tbody>
-    <tr>
-        <td colspan="4">هذه معلومات المعلومات الطالب</td>
-    </tr>
-   <tfoot></tfoot>
-</table>
-<h2>unorder list</h2>
-<ul type="circle">
-    <li>html</li>
-    <li>css</li>
-    <li>javascript</li>
-    <li>bootstrap</li>
-</ul>
-
-<h2>order list</h2>
+    <button type="button" id="btn">حفظ</button>
 
 
-<details>
-  <summary>معلومات الطالب</summary>
-  <ol type="a"  reversed>
-    <li>html</li>
-    <li>css</li>
-    <li>javascript</li>
-    <li>bootstrap</li>
-</ol>
-</details>
-<fieldset>
-    sfddgfdg westter
-    <legend>ادخل المعلومات</legend>
-</fieldset>
-<div>ahmed <span class="color-violet"> ali</span>  mohammed</div>
+    <script >
+const num1 = document.getElementById('num1');
+const num2 = document.getElementById('num2');
+function add(){
+    const result = Number(num1.value) + Number(num2.value);
+    alert(result);
+}
 
-<input type="text" class="square">
-<progress value="60" min="0" max="150">
-</progress>
-    <marquee behavior="" direction="top" >sfdgf sfert vfegr</marquee>
-    <div>
-    <input type="text" placeholder="mobile">
-    <input type="email" placeholder="email.example.com">
-    <input type="date">
-    <input type="range">
-    </div>
-    <div class="div1"></div>
-    <script src="myscript.js">
+// console.log(name1+'  '+name2);
+// console.log(`fullname : ${name1}    ${name2}`)
+
+/*===========================================================
+*/
+
+
+let name1 = document.getElementById('name1');
+let name2 = document.getElementById('name2');
+
+const btn = document.getElementById('btn');
+let result = document.getElementById('result');
+
+function fullname(){
+    result.innerHTML = name1.value +' '+name2.value;
+}
+        btn.addEventListener('click', fullname);
+
     </script>
 </body>
 </html>
