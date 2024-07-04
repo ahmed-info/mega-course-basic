@@ -10,6 +10,17 @@
             background-color: #1F1F1F;
         }
 
+        .week {
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            background-color: #0D6EFD;
+            margin: 10px;
+        }
+
         .main .child2 {
             color: red;
         }

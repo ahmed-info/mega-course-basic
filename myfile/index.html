@@ -19,7 +19,6 @@
 
     <button type="button" id="btn">حفظ</button>
 
-    
 
     <script >
 const num1 = document.getElementById('num1');
@@ -27,6 +26,7 @@ const num2 = document.getElementById('num2');
 function add(){
     const result = Number(num1.value) + Number(num2.value);
     alert(result);
+    console.log(result)
 }
 
 // console.log(name1+'  '+name2);
@@ -38,14 +38,77 @@ function add(){
 
 let name1 = document.getElementById('name1');
 let name2 = document.getElementById('name2');
-
-const btn = document.getElementById('btn');
-let result = document.getElementById('result');
-
-function fullname(){
-    result.innerHTML = name1.value +' '+name2.value;
+let myname ="abbas haider";
+let students = ["ahmed","ali","mustafa"];
+let newarray = myname.split(' ');
+ let nnum2 =32;
+///////////////////////////
+function multiply(number1,number2){
+    let result = number1 ** number2;
+    console.log(result);
 }
-        btn.addEventListener('click', fullname);
+///arrow function
+//let name = "header";
+let checkAge = ()=>{
+let mytext ="this age 30 years";
+console.log(mytext);
+}
+
+let age = 20;
+let name = "ahmed";
+let isMan = true;
+let skill = "php";
+//and &&
+//or ||
+
+if(age >50 && name =="ahmedddd" || skill =="html"){
+    alert("developer");
+}else if(age>15){
+    alert("this is man");
+}else{
+    alert("not developer")
+}
+// let checkAge2 = (age)=> {
+
+// };
+
+
+//console.log(checkAge2());
+//hello("bishr","abdulrazzaq");
+//multiply(5,3);
+//console.log(myname);
+
+
+
+
+
+let myarry =["ahmed","ali","mohammed", "bishr"];
+
+for(let i=0; i< myarry.length;i++){
+
+    if(myarry[i] === "bishr"){
+
+        console.log(myarry[i]);
+    }
+}
+
+// console.log(myarry[1]);
+// console.log(myarry[2]);
+// console.log(myarry[3]);
+for(let i=1;i <=10; i+=5){
+alert("bishr");
+}
+
+
+
+// const btn = document.getElementById('btn');
+// let result = document.getElementById('result');
+
+// function fullname(fisrtname,lastname){
+//     console.log(name1.ariaPlaceholder);
+//     //result.innerHTML = fisrtname +' '+lastname;
+// }
+       // btn.addEventListener('click', fullname("ahmed","ali"));
 
     </script>
 </body>
