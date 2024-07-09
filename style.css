@@ -7,8 +7,23 @@
 
         body {
             /* background-color: orange; */
-            background-color: #1F1F1F;
+            /* background-color: #1F1F1F;*/
         }
+
+        .circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            display: block !important;
+        }
+
+        .weeks {
+            width: 100px;
+            height: 100px;
+            background-color: lime;
+            margin: 10px;
+        }
+
 
         .week {
             display: flex;
