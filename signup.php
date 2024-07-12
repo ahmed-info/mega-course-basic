@@ -16,6 +16,7 @@ if (isset($_POST['save'])) {
     if ($result == true) {
         //echo "تم حفظ البيانات";
         echo "<script>alert('تم حفظ البيانات بنجاح');</script>";
+
         header("Location: dashboard.php");
     }
 }
