@@ -9,6 +9,7 @@ if (isset($_POST['save'])) {
     $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
+
     $passEncryption =  password_hash($password, PASSWORD_DEFAULT);
     $insertQuery = "INSERT INTO users(usename,email,password) VALUES('$username','$email','$passEncryption')";
 

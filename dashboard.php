@@ -1,3 +1,13 @@
+<?php
+
+if (!isset($_SESSION['login'])) {
+
+    echo "<script>
+    alert('سجل الدخول اولا');
+    </script>";
+    header('Location: login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,6 +19,7 @@
 
 <body>
     <h1>صفحة لوحة التحكم</h1>
+    <a href="index2.php">تسجيل الخروج</a>
 </body>
 
 </html>
