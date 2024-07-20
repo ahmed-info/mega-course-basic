@@ -1,0 +1,99 @@
+body
+{
+    background: url(backgound_test.jpg);
+    background-size: cover;
+    font-family: sans-serif;
+}
+.login
+{
+    width: 450px;
+    height: 550px;
+    padding: 0 50px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.6);
+
+}
+.login img{
+    width: 100px;
+    height: 100px;
+    position: relative;
+    bottom: 50px;
+    left: 120px;
+}
+.login h1{
+    margin: 0;
+    padding: 20px 20px;
+    color: #fff;
+    text-align: center;
+}
+.login label    
+{
+color: #fff;
+font-weight: bold;
+}
+.login input{
+width: 100%;
+margin:10px 0;
+}
+
+.login input[type="email"],
+.login input[type="password"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    /* شفافه */
+    background: transparent;
+    /* الحواف شلون تكون */
+    border-bottom: 1px solid rgb(255, 255, 255);
+    color-scheme: #fff;
+    font-size: 16px;
+    transition: 0.5s ease;
+    color: #fff;
+}
+.login input[type="submit"]
+{
+border:none ;
+outline: none;
+color: #ffffff;
+height: 40px;
+font-size: 20px;
+background:#bd9210 ;
+border-radius:14px;
+cursor: pointer;
+margin-bottom: 25px;
+}
+.login input[type="submit"]:hover{
+
+transform :scale(1.1);
+}
+.login a{
+    display: inline;
+}
+.login a.FP{
+    text-decoration: none;
+    color:#fff;
+    font-weight: 500px;
+    font-size: 16px;
+    margin-right: 75px;
+}
+.login a.CNA
+{
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500px;
+    font-size: 16px;
+
+}
+
+.login a:hover{
+    background-color: #a35c05 ;
+    border-radius:10px ;
+transform:translate(0.5s);
+}
+
+
