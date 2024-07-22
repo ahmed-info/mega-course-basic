@@ -35,7 +35,7 @@ if (isset($_POST['login'])) {
                 $_SESSION['login'] = 'login';
                 //setcookie("email", $email, time() + 60 * 1);
                 //echo "<script>alert('الباسورد صح');</script>";
-                header("Location: dashboard.php");
+                header("Location: adminasset/dashboard.php");
             } else {
                 echo "<script>alert('الباسورد غلط');</script>";
             }
