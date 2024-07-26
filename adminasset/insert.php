@@ -5,23 +5,37 @@ if (isset($_POST['myinsert'])) {
     $description = $_POST['description'];
     $price = $_POST['price'];
     $discount = $_POST['discount'];
-
     $image = $_FILES['myimage']['name'];  //cake.jpg
-    //              insert into اسم الجدول (column1,column2,column3,column4,) value('value1,...')
-    $insertQuery = "INSERT INTO products(title,description,price,dicscount,image) VALUES('$title','$description',$price,$discount,'$image')";
 
-    $insertFORDatabase = mysqli_query($connection, $insertQuery);
-    if ($insertFORDatabase) {
-        //رفع الصورة على السيرفر
-        move_uploaded_file($_FILES['myimage']['tmp_name'], '../images/products/' . $image);
-        //echo "تم حفظ البيانات";
+    $extension =  pathinfo($image, PATHINFO_EXTENSION);
+
+    $accept = array('jpg', 'gif', 'jpeg', 'mp4', 'png');
+
+    if (!in_array($extension, $accept)) {
         echo "<script>
+        alert('اختر الملف من نوع صورة');
+        window.location.href = '../index.php';
+        </script>";
+        header('Location: ../index.php');
+    } else {
+        //echo "هذا الامتداد غير مسموح به";
+        //              insert into اسم الجدول (column1,column2,column3,column4,) value('value1,...')
+        $insertQuery = "INSERT INTO products(title,description,price,dicscount,image) VALUES('$title','$description',$price,$discount,'$image')";
+
+        $insertFORDatabase = mysqli_query($connection, $insertQuery);
+        if ($insertFORDatabase) {
+            //رفع الصورة على السيرفر
+            move_uploaded_file($_FILES['myimage']['tmp_name'], '../images/products/' . $image);
+            //echo "تم حفظ البيانات";
+            echo "<script>
         alert('تم حفظ البيانات بنجاح');
         window.location.href = 'dashboard.php';
         </script>";
 
-        //header("Location: dashboard.php");
+            //header("Location: dashboard.php");
+        }
     }
+    die;
 };
 
 include('layout/header.php');
@@ -95,6 +109,5 @@ include('layout/navbar.php');
     </section>
     <!-- /.content -->
 </div>
-<!-- /.content-wrapper --><?php
-                            include('layout/footer.php');
-                            ?>
+<!-- /.content-wrapper -->
+<?php include('layout/footer.php'); ?>

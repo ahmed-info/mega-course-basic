@@ -39,6 +39,16 @@
                          </li>
 
                      </ul>
+
+                     <ul class="nav nav-treeview">
+                         <li class="nav-item">
+                             <a href="list.php" class="nav-link active">
+                                 <i class="far fa-circle nav-icon"></i>
+                                 <p>قائمة المنتجات</p>
+                             </a>
+                         </li>
+
+                     </ul>
                  </li>
                  <li class="nav-item">
                      <a href="pages/widgets.html" class="nav-link">

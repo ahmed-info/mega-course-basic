@@ -1,3 +1,16 @@
+<?php require('configration.php');
+if ($connection == true) {
+  $myQuery = "SELECT * FROM products";
+  $resutls = mysqli_query($connection, $myQuery);
+}
+
+?>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="ar">
 
@@ -93,50 +106,33 @@
     </div>
     <!-- container -->
     <div class="products-container">
-      <div class="box">
-        <img src="images/product1.png" alt="p1" />
-        <h3>Americano Pure</h3>
-        <div class="content">
-          <span>7000 IQD</span>
-          <a href="#">اضافة الى السلة</a>
-        </div>
-      </div>
+      <?php if ($resutls) {
+        if (mysqli_num_rows($resutls) > 0) {
+          foreach ($resutls as $product) {
+      ?>
+            <div class="box">
+              <img src="images/products/<?php echo $product['image']; ?>" alt="<?php echo $product['title']; ?>" />
 
-      <div class="box">
-        <img src="images/product2.png" alt="p1" />
-        <h1>Americano Pure</h1>
-        <div class="content">
-          <span>7000 IQD</span>
-          <a href="#">اضافة الى السلة </a>
-        </div>
-      </div>
+              <h3><?php
+                  echo $product['title'];
+                  ?></h3>
+              <div class="content">
+                <del><?php echo $product['price']; ?> IQD</del>
+                <div><?php echo $product['dicscount']; ?> IQD</div>
+                <a href="#">اضافة الى السلة</a>
+              </div>
+            </div>
+          <?php
+          }
 
-      <div class="box">
-        <img src="images/product3.png" alt="صورة منتج" />
-        <h3>Americano Pure</h3>
-        <div class="content">
-          <span>7000 IQD</span>
-          <a href="#">اضافة الى السلة </a>
-        </div>
-      </div>
+          ?>
 
-      <div class="box">
-        <img src="images/product4.png" alt="p4" />
-        <h3>Americano Pure</h3>
-        <div class="content">
-          <span>7000 IQD</span>
-          <a href="#">اضافة الى السلة </a>
-        </div>
-      </div>
 
-      <div class="box">
-        <img src="images/product5.png" alt="p5" />
-        <h3>Americano Pure</h3>
-        <div class="content">
-          <span>7000 IQD</span>
-          <a href="#">اضافة الى السلة </a>
-        </div>
-      </div>
+      <?php
+        }
+      } ?>
+
+
     </div>
     <!-- products-container -->
   </section>
