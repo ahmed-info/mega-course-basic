@@ -23,6 +23,7 @@ if (isset($_POST['myinsert'])) {
         $insertQuery = "INSERT INTO products(title,description,price,dicscount,image) VALUES('$title','$description',$price,$discount,'$image')";
 
         $insertFORDatabase = mysqli_query($connection, $insertQuery);
+
         if ($insertFORDatabase) {
             //رفع الصورة على السيرفر
             move_uploaded_file($_FILES['myimage']['tmp_name'], '../images/products/' . $image);

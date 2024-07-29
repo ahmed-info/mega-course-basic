@@ -1,8 +1,8 @@
 <?php
 require('../configration.php');
-
 include('layout/header.php');
 include('layout/navbar.php');
+include('layout/sidebar.php');
 
 if (isset($_POST['myupdate'])) {
     $id = $_POST['id'];
@@ -10,15 +10,32 @@ if (isset($_POST['myupdate'])) {
     $description = $_POST['description'];
     $price = $_POST['price'];
     $discount = $_POST['discount'];
-    $image = $_FILES['myimage']['name'];  //cake.jpg
-    $myQuery = "UPDATE products SET title='$title', description = '$description', price=$price ,dicscount= $discount WHERE id =$id";
-    $result =  mysqli_query($connection, $myQuery);
-}
-?>
-<!-- /.navbar -->
+    $image = $_FILES['myimage']['name'];
+    $before = $_POST['before'];
 
-<!-- Main Sidebar Container -->
-<?php include('layout/sidebar.php'); ?>
+
+
+    if ($image == '') {
+        $filename = $before;
+    } else {
+        $filename = $image;
+    }
+
+
+    $myQuery = "UPDATE products SET title='$title', description = '$description', price=$price ,dicscount= $discount,image= '$filename' WHERE id =$id";
+
+    $result =  mysqli_query($connection, $myQuery);
+    if ($result) {
+        move_uploaded_file($_FILES['myimage']['tmp_name'], '../images/products/' . $filename);
+        unlink('../images/products/' . $before);
+        $_SESSION['status'] = "تم تعديل البيانات بنجاح";
+        echo "<script>
+        window.location.href = 'list.php';
+        </script>";
+    }
+}
+
+?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -65,7 +82,9 @@ if (isset($_POST['myupdate'])) {
 
                                     <div class="col-md-6">
                                         <label for="discount">صورة المنتج</label>
+                                        <input type="text" name="before" value="<?php echo $row['image']; ?>">
                                         <img width="150" src="../images/products/<?php echo $row['image']; ?>" alt="">
+                                        <input type="text" class="form-control" name="before" value="<?php echo $row['image']; ?>">
                                         <input type="file" class="form-control" name="myimage" id="discount">
                                     </div>
 

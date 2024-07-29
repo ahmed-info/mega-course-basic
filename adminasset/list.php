@@ -7,7 +7,6 @@ if ($connection == true) {
     $myQuery = "SELECT * FROM products";
     $results = mysqli_query($connection, $myQuery);
 }
-
 ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -15,6 +14,7 @@ if ($connection == true) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
+
                     <h1 class="m-0 text-dark">قائمة المنتجات</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
@@ -29,6 +29,20 @@ if ($connection == true) {
 
     <section class="content">
         <div class="container-fluid">
+            <?php
+            if (isset($_SESSION['status'])) {
+            ?>
+                <div class="alert alert-success">
+                    <?php
+                    echo $_SESSION['status'];
+                    unset($_SESSION['status']);
+                    ?>
+                </div>
+            <?php
+
+            }
+            ?>
+
             <!-- Small boxes (Stat box) -->
             <div class="card">
 
@@ -69,7 +83,12 @@ if ($connection == true) {
                                         </td>
 
                                         <td>
+                                            <form action="delete.php" method="post">
+                                                <input type="hidden" name="myid" value="<?php echo $row['id']; ?>">
+                                                <input type="hidden" name="image" value="<?php echo $row['image']; ?>">
+                                                <input type="submit" class="btn btn-danger" name="mydelete" value="حذف">
 
+                                            </form>
                                         </td>
 
                                     </tr>
