@@ -7,6 +7,14 @@ if ($connection == true) {
     $myQuery = "SELECT * FROM products";
     $results = mysqli_query($connection, $myQuery);
 }
+
+if (isset($_GET['sort'])) {
+    $min = $_GET['min'];
+    $max = $_GET['max'];
+    $querybetween = "SELECT * FROM `products` WHERE price BETWEEN $min AND  $max;";
+    $results = mysqli_query($connection, $querybetween);
+}
+
 ?>
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -45,7 +53,12 @@ if ($connection == true) {
 
             <!-- Small boxes (Stat box) -->
             <div class="card">
+                <form action="list.php" method="GET">
+                    <input type="number" placeholder="اقل سعر" name="min">
+                    <input type="number" placeholder="اعلى سعر" name="max">
+                    <input type="submit" class="btn btn-danger" name="sort" value="فلترة">
 
+                </form>
                 <div class="card-header">
                     <h3 class="card-title">Bordered Table</h3>
                 </div>
@@ -65,6 +78,7 @@ if ($connection == true) {
                             </tr>
                         </thead>
                         <tbody>
+
                             <?php if ($results && mysqli_num_rows($results) > 0) {
                                 foreach ($results as $row) {
                                     //$myarray =   mysqli_fetch_array($results);
@@ -84,11 +98,16 @@ if ($connection == true) {
 
                                         <td>
                                             <form action="delete.php" method="post">
-                                                <input type="hidden" name="myid" value="<?php echo $row['id']; ?>">
+                                                <input type="text" name="myid" value="<?php echo $row['id']; ?>">
                                                 <input type="hidden" name="image" value="<?php echo $row['image']; ?>">
                                                 <input type="submit" class="btn btn-danger" name="mydelete" value="حذف">
-
                                             </form>
+
+
+
+
+
+
                                         </td>
 
                                     </tr>
