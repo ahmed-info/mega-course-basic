@@ -1,8 +1,8 @@
 <?php
 require('../configration.php');
 if (isset($_POST['myinsert'])) {
-    $title = $_POST['title'];
-    $description = $_POST['description'];
+    $title = htmlspecialchars($_POST['title']);
+    $description = htmlspecialchars($_POST['description']);
     $price = $_POST['price'];
     $discount = $_POST['discount'];
     $image = $_FILES['myimage']['name'];  //cake.jpg

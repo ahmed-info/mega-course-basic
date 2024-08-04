@@ -1,13 +1,12 @@
-<?php require('configration.php');
+<?php
+require('configration.php');
+//$page = isset($_GET['page']) ? $_GET['page'] : 'home';
+
 if ($connection == true) {
   $myQuery = "SELECT * FROM products";
   $resutls = mysqli_query($connection, $myQuery);
 }
-
 ?>
-
-
-
 
 
 

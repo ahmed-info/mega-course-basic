@@ -24,9 +24,16 @@ if (isset($_POST['login'])) {
         $emailError = "اكتب الايميل بشكل صحيح";
     }
     if ($passwordError == "" && $emailError == "") {
-        $query = "SELECT * FROM users WHERE email='$email'";
+        //xyz@gmail.com` OR 1=1 LIMIT 1#
+        $query = "SELECT * FROM users WHERE email='$email' AND password ='$password'";
         $result = mysqli_query($connection, $query);
-
+        $row = mysqli_num_rows($result);
+        if ($row > 0) {
+            echo "تم الدخول بنجاح";
+        } else {
+            echo "لم يتم التسجيل";
+        }
+        exit;
         if ($result == true) {
             $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 

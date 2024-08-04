@@ -11,9 +11,19 @@ if ($connection == true) {
 if (isset($_GET['sort'])) {
     $min = $_GET['min'];
     $max = $_GET['max'];
-    $querybetween = "SELECT * FROM `products` WHERE price BETWEEN $min AND  $max;";
-    $results = mysqli_query($connection, $querybetween);
+    try {
+        $querybetween = "SELECT * FROM `products` WHERE price BETWEEN $min AND  $max;";
+        $results = mysqli_query($connection, $querybetween);
+    } catch (\Exception $exx) {
+        echo "<script>
+        alert('يوجد خطأ');
+        </script>";
+        die;
+    }
 }
+
+
+
 
 ?>
 <div class="content-wrapper">
