@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            background-color: blueviolet;
+            display: grid;
+            height: 100vh;
+
+            grid-template-areas:
+                "nav header header header"
+                "nav content content sidebar"
+                "nav content content sidebar"
+                "nav content content sidebar"
+                "nav content content sidebar"
+                "nav footer footer footer";
+            row-gap: 20px;
+            column-gap: 10px;
+        }
+
+        .father div {
+            background-color: yellowgreen;
+            font-style: 24;
+            color: white;
+
+            text-align: center;
+        }
+
+        .header {
+
+            /* grid-column-start: 1;
+            grid-column-end: 4;
+            align-items: center; */
+            grid-area: header;
+
+        }
+
+        .nav {
+            /* grid-row-start: 2; */
+            /* grid-row-end: 7; */
+            grid-area: nav;
+
+        }
+
+        .content {
+            /* grid-row-start: 2;
+            grid-row-end: 7; */
+            grid-area: content;
+
+        }
+
+        .sidebar {
+            /* grid-row-start: 2;
+            grid-row-end: 7; */
+            grid-area: sidebar;
+            height: 0px;
+
+        }
+
+        .footer {
+            /* grid-column-start: 1;
+            grid-column-end: 4;
+            grid-row-start: 7; */
+            grid-area: footer;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="header">header</div>
+        <div class="nav">nav</div>
+        <div class="content">content</div>
+        <div class="sidebar">sidebar</div>
+        <div class="footer">footer</div>
+    </div>
+</body>
+
+</html>
