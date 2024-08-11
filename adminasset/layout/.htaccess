@@ -1,0 +1,3 @@
+Options -Index
+# Echo Error Message
+ErrorDocument 401 "لايمكن الدخول للملف"
